@@ -17,6 +17,19 @@ const config = {
                 sans: ["var(--font-geist-sans)", ...fontFamily.sans],
                 mono: ["var(--font-geist-mono)", ...fontFamily.mono],
             },
+            fontSize: {
+                title: [
+                    "clamp(24px, 15vw, 128px)",
+                    {
+                        fontWeight: "900",
+                        letterSpacing: "-0.025em",
+                    },
+                ],
+            },
+            dropShadow: {
+                "primary-md": "0 0 25px hsl(var(--primary)/0.5)",
+                "primary-lg": "0 0 50px hsl(var(--primary)/0.5)",
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
@@ -66,10 +79,15 @@ const config = {
                     from: { height: "var(--radix-accordion-content-height)" },
                     to: { height: "0" },
                 },
+                "background-shine": {
+                    from: { backgroundPosition: "0 0" },
+                    to: { backgroundPosition: "-200% 0" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                "background-shine": "background-shine 2s linear infinite",
             },
         },
     },
