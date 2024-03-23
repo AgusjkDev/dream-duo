@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import AnimatedGradientBorderCard from "@/components/animated-gradient-border-card";
+import SectionLayout from "./section-layout";
 
 const FEATURES = [
     {
@@ -28,34 +29,33 @@ const FEATURES = [
 
 export default function Features() {
     return (
-        <section
-            id="features"
-            className="flex min-h-dvh flex-wrap items-center justify-center gap-8 bg-background px-8 py-16 lg:gap-16"
-        >
-            {FEATURES.map(({ key, imageSrc, title, description }) => (
-                <AnimatedGradientBorderCard
-                    key={key}
-                    as="article"
-                    variant="primary"
-                    className="max-w-xs"
-                >
-                    <div className="grid h-full w-full grid-rows-3 place-items-center px-6 py-8">
-                        <Image
-                            alt={`Illustration for ${title}`}
-                            src={`/imgs/features/${imageSrc}`}
-                            width={150}
-                            height={150}
-                            quality={100}
-                        />
+        <SectionLayout id="features" title="Embrace your love journey" className="min-h-dvh">
+            <div className="flex w-[92.5%] flex-wrap items-center justify-center gap-8 xl:gap-16">
+                {FEATURES.map(({ key, imageSrc, title, description }) => (
+                    <AnimatedGradientBorderCard
+                        key={key}
+                        as="article"
+                        variant="primary"
+                        className="max-w-xs"
+                    >
+                        <div className="grid h-full w-full grid-rows-3 place-items-center px-6 py-8">
+                            <Image
+                                alt={`Illustration for ${title}`}
+                                src={`/imgs/features/${imageSrc}`}
+                                width={150}
+                                height={150}
+                                quality={100}
+                            />
 
-                        <h3 className="font-bold capitalize">{title}</h3>
+                            <h3 className="font-bold capitalize">{title}</h3>
 
-                        <p className="font-light text-muted-foreground text-xs leading-5">
-                            {description}
-                        </p>
-                    </div>
-                </AnimatedGradientBorderCard>
-            ))}
-        </section>
+                            <p className="font-light text-muted-foreground text-xs leading-5">
+                                {description}
+                            </p>
+                        </div>
+                    </AnimatedGradientBorderCard>
+                ))}
+            </div>
+        </SectionLayout>
     );
 }
