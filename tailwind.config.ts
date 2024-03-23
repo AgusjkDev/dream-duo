@@ -25,6 +25,14 @@ const config = {
                         letterSpacing: "-0.025em",
                     },
                 ],
+                subtitle: [
+                    "clamp(24px, 7vw, 52px)",
+                    {
+                        fontWeight: "700",
+                        lineHeight: "1",
+                        letterSpacing: "-0.05em",
+                    },
+                ],
             },
             dropShadow: {
                 "primary-md": "0 0 25px hsl(var(--primary)/0.5)",
