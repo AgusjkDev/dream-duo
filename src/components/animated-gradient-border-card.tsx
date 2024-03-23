@@ -25,6 +25,7 @@ const gradientVariants = cva("-inset-full absolute animate-spin", {
 interface AnimatedGradientBorderCardProps<T extends keyof JSX.IntrinsicElements>
     extends React.HTMLAttributes<T>,
         VariantProps<typeof gradientVariants> {
+    children: React.ReactNode;
     as?: keyof JSX.IntrinsicElements;
 }
 
@@ -34,7 +35,7 @@ export default function AnimatedGradientBorderCard<T extends keyof JSX.Intrinsic
     variant,
     speed,
     ...props
-}: Readonly<React.PropsWithChildren<AnimatedGradientBorderCardProps<T>>>) {
+}: Readonly<AnimatedGradientBorderCardProps<T>>) {
     const Comp = props.as ?? "div";
 
     return (
