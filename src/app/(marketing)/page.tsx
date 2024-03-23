@@ -1,5 +1,6 @@
 import Hero from "./_components/hero";
 import Features from "./_components/features";
+import Testimonials from "./_components/testimonials";
 
 export default function Index() {
     return (
@@ -7,6 +8,8 @@ export default function Index() {
             <Hero />
 
             <Features />
+
+            <Testimonials />
         </>
     );
 }
