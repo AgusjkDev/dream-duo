@@ -39,13 +39,14 @@ export default function Features() {
                         className="max-w-xs"
                     >
                         <div className="grid h-full w-full grid-rows-3 place-items-center px-6 py-8">
-                            <Image
-                                alt={`Illustration for ${title}`}
-                                src={`/imgs/features/${imageSrc}`}
-                                width={150}
-                                height={150}
-                                quality={100}
-                            />
+                            <div className="relative aspect-square w-36">
+                                <Image
+                                    alt={`Illustration for ${title}`}
+                                    src={`/imgs/features/${imageSrc}`}
+                                    fill
+                                    quality={100}
+                                />
+                            </div>
 
                             <h3 className="font-bold capitalize">{title}</h3>
 
