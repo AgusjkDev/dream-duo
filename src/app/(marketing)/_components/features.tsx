@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import AnimatedGradientBorderCard from "@/components/animated-gradient-border-card";
+
 const FEATURES = [
     {
         key: "find-your-perfect-match",
@@ -31,15 +33,13 @@ export default function Features() {
             className="flex min-h-dvh flex-wrap items-center justify-center gap-8 bg-background px-8 py-16 lg:gap-16"
         >
             {FEATURES.map(({ key, imageSrc, title, description }) => (
-                <article
+                <AnimatedGradientBorderCard
                     key={key}
-                    className="relative aspect-square w-full max-w-xs overflow-hidden rounded-xl border p-[1px] backdrop-blur-3xl"
+                    as="article"
+                    variant="primary"
+                    className="max-w-xs"
                 >
-                    <span
-                        aria-hidden="true"
-                        className="-inset-full absolute animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--background))_0%,hsl(var(--primary)/0.5)_50%,hsl(var(--background))_100%)]"
-                    />
-                    <div className="grid h-full w-full grid-rows-3 place-items-center rounded-xl bg-background p-6 py-8 backdrop-blur-3xl">
+                    <div className="grid h-full w-full grid-rows-3 place-items-center px-6 py-8">
                         <Image
                             alt={`Illustration for ${title}`}
                             src={`/imgs/features/${imageSrc}`}
@@ -54,7 +54,7 @@ export default function Features() {
                             {description}
                         </p>
                     </div>
-                </article>
+                </AnimatedGradientBorderCard>
             ))}
         </section>
     );
