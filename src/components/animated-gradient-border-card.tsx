@@ -6,9 +6,9 @@ const gradientVariants = cva("-inset-full absolute animate-spin", {
     variants: {
         variant: {
             default:
-                "bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--background))_0%,hsl(var(--foreground)/0.5)_50%,hsl(var(--background))_100%)]",
+                "lg:bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--background))_0%,hsl(var(--foreground)/0.5)_50%,hsl(var(--background))_100%)]",
             primary:
-                "bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--background))_0%,hsl(var(--primary)/0.5)_50%,hsl(var(--background))_100%)]",
+                "lg:bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--background))_0%,hsl(var(--primary)/0.5)_50%,hsl(var(--background))_100%)]",
         },
         speed: {
             default: "[animation-duration:2s]",
@@ -40,13 +40,13 @@ export default function AnimatedGradientBorderCard<T extends keyof JSX.Intrinsic
     return (
         <Comp
             className={cn(
-                "relative aspect-square w-full overflow-hidden rounded-xl border p-px backdrop-blur-3xl",
+                "relative aspect-square w-full overflow-hidden rounded-xl border p-px lg:backdrop-blur-3xl",
                 className,
             )}
         >
             <span aria-hidden="true" className={gradientVariants({ variant, speed })} />
 
-            <div className="h-full w-full rounded-xl bg-background backdrop-blur-3xl">
+            <div className="h-full w-full rounded-xl bg-background lg:backdrop-blur-3xl">
                 {children}
             </div>
         </Comp>
