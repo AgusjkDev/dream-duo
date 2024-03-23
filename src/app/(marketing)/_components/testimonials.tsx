@@ -1,3 +1,7 @@
+"use client";
+
+import Autoplay from "embla-carousel-autoplay";
+
 import {
     Carousel,
     CarouselContent,
@@ -70,7 +74,10 @@ const TESTIMONIALS = [
 export default function Testimonials() {
     return (
         <SectionLayout title="Insights from our community">
-            <Carousel className="w-[72.5%] max-w-xs xl:w-full xl:max-w-[1088px]">
+            <Carousel
+                className="w-[72.5%] max-w-xs xl:w-full xl:max-w-[1088px]"
+                plugins={[Autoplay({ delay: 3000 })]}
+            >
                 <CarouselPrevious />
 
                 <CarouselContent className="-ml-8 xl:-ml-16">
