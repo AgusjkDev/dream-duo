@@ -8,12 +8,14 @@ export default function Index() {
         <>
             <Hero />
 
-            <div className="mx-auto w-[92.5%] bg-background py-16">
-                <Features />
+            <div className="mx-auto w-full bg-background py-16">
+                <div className="mx-auto w-[92.5%]">
+                    <Features />
 
-                <Testimonials />
+                    <Testimonials />
 
-                <Footer />
+                    <Footer />
+                </div>
             </div>
         </>
     );
