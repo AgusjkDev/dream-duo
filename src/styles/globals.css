@@ -54,7 +54,25 @@
         @apply border-border;
     }
 
+    html {
+        @apply scroll-smooth scrollbar;
+    }
+
     body {
         @apply bg-background text-foreground font-sans;
+    }
+}
+
+@layer components {
+    .scrollbar::-webkit-scrollbar {
+        @apply w-3;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        @apply rounded-full border-4 border-solid border-transparent bg-primary bg-clip-content;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        @apply bg-transparent;
     }
 }
