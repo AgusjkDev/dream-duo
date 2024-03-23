@@ -38,6 +38,9 @@ const config = {
                 "primary-md": "0 0 25px hsl(var(--primary)/0.5)",
                 "primary-lg": "0 0 50px hsl(var(--primary)/0.5)",
             },
+            maxWidth: {
+                "prose-lg": "75ch",
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",

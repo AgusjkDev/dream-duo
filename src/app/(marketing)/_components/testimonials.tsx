@@ -69,7 +69,7 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
     return (
-        <SectionLayout title="Insights from our community">
+        <SectionLayout title="Insights from our community" className="pb-48">
             <Carousel className="w-[72.5%] max-w-xs lg:w-[87.5%] lg:max-w-screen-lg">
                 <CarouselPrevious />
 
