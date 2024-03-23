@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export default function Hero() {
     return (
-        <main className="relative grid h-dvh w-full place-items-center py-6">
+        <main className="relative grid h-dvh w-full place-items-center py-6 lg:snap-center">
             <svg
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"

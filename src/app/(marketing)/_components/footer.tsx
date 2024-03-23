@@ -54,7 +54,7 @@ const PARAGRAPHS = [
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col items-center gap-y-8">
+        <footer className="flex flex-col items-center gap-y-8 lg:snap-center">
             <section className="flex w-full flex-wrap gap-12">
                 {NAVIGATION.map(({ key, title, anchors }) => (
                     <article key={key} className="flex flex-col gap-y-2">

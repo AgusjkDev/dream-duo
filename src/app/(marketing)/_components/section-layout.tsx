@@ -13,7 +13,7 @@ export default function SectionLayout({
     return (
         <section
             className={cn(
-                "flex min-h-dvh flex-col items-center justify-center gap-y-16",
+                "flex min-h-dvh flex-col items-center justify-center gap-y-16 lg:snap-center",
                 className,
             )}
             {...props}

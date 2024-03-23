@@ -55,7 +55,7 @@
     }
 
     html {
-        @apply scroll-smooth scrollbar;
+        @apply scroll-smooth scrollbar lg:snap-y lg:snap-mandatory;
     }
 
     body {
