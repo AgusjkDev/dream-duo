@@ -26,7 +26,7 @@ export default function Hero() {
                 </Link>
             </div>
 
-            <button aria-label="See more" type="button" className="absolute bottom-4">
+            <a aria-label="See more" href="#features" className="absolute bottom-4">
                 <svg
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ export default function Hero() {
                 >
                     <path d="M12 5l0 14 M16 15l-4 4 M8 15l4 4" />
                 </svg>
-            </button>
+            </a>
         </main>
     );
 }
