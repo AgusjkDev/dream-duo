@@ -13,7 +13,7 @@ export default function SectionLayout({
     return (
         <section
             className={cn(
-                "flex flex-col items-center justify-center gap-y-12 bg-background py-12 xl:gap-y-16 xl:py-16",
+                "flex min-h-dvh flex-col items-center justify-center gap-y-16",
                 className,
             )}
             {...props}

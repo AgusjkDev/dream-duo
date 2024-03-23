@@ -29,8 +29,8 @@ const FEATURES = [
 
 export default function Features() {
     return (
-        <SectionLayout id="features" title="Embrace your love journey" className="min-h-dvh">
-            <div className="flex w-[92.5%] flex-wrap items-center justify-center gap-8 xl:gap-16">
+        <SectionLayout id="features" title="Embrace your love journey">
+            <div className="flex flex-wrap items-center justify-center gap-8 xl:gap-16">
                 {FEATURES.map(({ key, imageSrc, title, description }) => (
                     <AnimatedGradientBorderCard
                         key={key}

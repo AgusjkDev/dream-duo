@@ -69,13 +69,13 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
     return (
-        <SectionLayout title="Insights from our community" className="pb-48">
-            <Carousel className="w-[72.5%] max-w-xs lg:w-[87.5%] lg:max-w-screen-lg">
+        <SectionLayout title="Insights from our community">
+            <Carousel className="w-[72.5%] max-w-xs xl:w-full xl:max-w-[1088px]">
                 <CarouselPrevious />
 
-                <CarouselContent className="lg:-ml-8 xl:-ml-12">
+                <CarouselContent className="-ml-8 xl:-ml-16">
                     {TESTIMONIALS.map(({ key, title, description }) => (
-                        <CarouselItem key={key} className="lg:basis-1/3 lg:pl-8 xl:pl-12">
+                        <CarouselItem key={key} className="pl-8 xl:basis-1/3 xl:pl-16">
                             <Card className="aspect-square h-full w-full">
                                 <CardHeader className="relative">
                                     <CardTitle className="flex items-center justify-between">

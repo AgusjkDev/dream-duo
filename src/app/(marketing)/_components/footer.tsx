@@ -54,13 +54,13 @@ const PARAGRAPHS = [
 
 export default function Footer() {
     return (
-        <footer className="flex flex-col items-center gap-y-8 bg-background px-8 pt-32 pb-12 lg:px-16 xl:pt-48 xl:pb-16">
+        <footer className="flex flex-col items-center gap-y-8">
             <section className="flex w-full flex-wrap gap-12">
                 {NAVIGATION.map(({ key, title, anchors }) => (
-                    <article key={key} className="flex flex-col gap-y-3">
+                    <article key={key} className="flex flex-col gap-y-2">
                         <h4 className="font-medium">{title}</h4>
 
-                        <nav className="flex flex-col items-start gap-y-1.5">
+                        <nav className="flex flex-col items-start gap-y-1 lg:gap-y-0.5">
                             {anchors.map(({ key, ...props }) => (
                                 <Link
                                     key={key}
