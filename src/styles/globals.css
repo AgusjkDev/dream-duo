@@ -65,7 +65,7 @@
 
 @layer components {
     .scrollbar::-webkit-scrollbar {
-        @apply w-3;
+        @apply w-3.5;
     }
 
     .scrollbar::-webkit-scrollbar-thumb {
