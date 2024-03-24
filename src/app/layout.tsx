@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 import ThemeProvider from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
-import { SITE_CONFIG, BASE_URL } from "@/lib/constants";
+import { SITE_CONFIG, NEXT_PUBLIC_BASE_URL } from "@/lib/constants";
 
 import "@/styles/globals.css";
 
@@ -22,12 +22,12 @@ export function generateMetadata(): Metadata {
         openGraph: {
             title: SITE_CONFIG.name,
             description: SITE_CONFIG.description,
-            url: BASE_URL,
+            url: NEXT_PUBLIC_BASE_URL,
             siteName: SITE_CONFIG.name,
             locale: "en_US",
             type: "website",
             images: {
-                url: `${BASE_URL}/og.jpg`,
+                url: `${NEXT_PUBLIC_BASE_URL}/og.jpg`,
                 width: 3840,
                 height: 2010,
             },

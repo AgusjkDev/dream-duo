@@ -1,6 +1,8 @@
-const { VERCEL_URL, PORT } = process.env;
+export const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
 
-export const BASE_URL = VERCEL_URL ? `https://${VERCEL_URL}` : `http://localhost:${PORT || 3000}`;
+export const NEXT_PUBLIC_BASE_URL = IS_DEVELOPMENT
+    ? `http://localhost:${process.env.PORT || 3000}`
+    : process.env.NEXT_PUBLIC_BASE_URL;
 
 export const SITE_CONFIG = {
     name: "Dream Duo",
