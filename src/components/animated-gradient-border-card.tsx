@@ -45,7 +45,10 @@ export default function AnimatedGradientBorderCard<T extends keyof JSX.Intrinsic
                 className,
             )}
         >
-            <span aria-hidden="true" className={gradientVariants({ variant, speed })} />
+            <span
+                aria-hidden="true"
+                className={cn(gradientVariants({ variant, speed }), "pointer-events-none")}
+            />
 
             <div className="h-full w-full rounded-xl bg-background lg:backdrop-blur-3xl">
                 {children}
