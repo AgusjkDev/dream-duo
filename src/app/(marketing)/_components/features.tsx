@@ -42,12 +42,12 @@ export default function Features() {
                         variant="primary"
                         className="max-w-xs"
                     >
-                        <div className="grid h-full w-full grid-rows-3 place-items-center px-6 py-8">
-                            <Svg className="aspect-square w-36" />
+                        <div className="grid h-full w-full grid-rows-[2fr,1fr,2fr] place-items-center p-6">
+                            <Svg className="max-h-[107px]" />
 
                             <h3 className="font-bold capitalize">{title}</h3>
 
-                            <p className="font-light text-muted-foreground text-xs leading-5">
+                            <p className="h-full place-self-start font-light text-muted-foreground text-xs leading-5">
                                 {description}
                             </p>
                         </div>
