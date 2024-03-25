@@ -1,6 +1,8 @@
 import Link, { type LinkProps } from "next/link";
 
+import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 
 const NAVIGATION = [
     {
@@ -64,8 +66,11 @@ export default function Footer() {
                             {anchors.map(({ key, ...props }) => (
                                 <Link
                                     key={key}
-                                    className="rounded-md text-muted-foreground text-sm underline-offset-4 transition-colors focus-visible:text-foreground hover:text-foreground focus-visible:underline hover:underline focus-visible:outline-none"
                                     {...props}
+                                    className={cn(
+                                        buttonVariants({ variant: "link", size: "inherit" }),
+                                        "text-sm",
+                                    )}
                                 />
                             ))}
                         </nav>

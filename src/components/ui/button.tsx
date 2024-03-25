@@ -18,7 +18,7 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "text-muted-foreground underline-offset-4 focus-visible:text-foreground hover:text-foreground focus-visible:underline hover:underline focus-visible:ring-0",
         shine: 
           "animate-background-shine border border-input bg-[length:200%_100%] bg-[linear-gradient(110deg,hsl(var(--background)),45%,hsl(var(--primary)/0.25),55%,hsl(var(--background)))] bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
       },
@@ -27,6 +27,7 @@ const buttonVariants = cva(
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
+        inherit: ""
       },
     },
     defaultVariants: {
