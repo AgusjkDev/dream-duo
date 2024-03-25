@@ -19,6 +19,74 @@ export function generateMetadata(): Metadata {
         authors: { name: SITE_CONFIG.author },
         generator: "Next.js",
         referrer: "origin",
+        manifest: "/manifest.webmanifest",
+        icons: [
+            { rel: "apple-touch-icon", sizes: "57x57", url: "/imgs/favicons/favicon-57x57.png" },
+            { rel: "apple-touch-icon", sizes: "60x60", url: "/imgs/favicons/favicon-60x60.png" },
+            { rel: "apple-touch-icon", sizes: "72x72", url: "/imgs/favicons/favicon-72x72.png" },
+            { rel: "apple-touch-icon", sizes: "76x76", url: "/imgs/favicons/favicon-76x76.png" },
+            {
+                rel: "apple-touch-icon",
+                sizes: "114x114",
+                url: "/imgs/favicons/favicon-114x114.png",
+            },
+            {
+                rel: "apple-touch-icon",
+                sizes: "120x120",
+                url: "/imgs/favicons/favicon-120x120.png",
+            },
+            {
+                rel: "apple-touch-icon",
+                sizes: "144x144",
+                url: "/imgs/favicons/favicon-144x144.png",
+            },
+            {
+                rel: "apple-touch-icon",
+                sizes: "152x152",
+                url: "/imgs/favicons/favicon-152x152.png",
+            },
+            {
+                rel: "apple-touch-icon",
+                sizes: "180x180",
+                url: "/imgs/favicons/favicon-180x180.png",
+            },
+            {
+                rel: "icon",
+                type: "image/png",
+                sizes: "512x512",
+                url: "/imgs/favicons/favicon-512x512.png",
+            },
+            {
+                rel: "icon",
+                type: "image/png",
+                sizes: "192x192",
+                url: "/imgs/favicons/favicon-192x192.png",
+            },
+            {
+                rel: "icon",
+                type: "image/png",
+                sizes: "96x96",
+                url: "/imgs/favicons/favicon-96x96.png",
+            },
+            {
+                rel: "icon",
+                type: "image/png",
+                sizes: "32x32",
+                url: "/imgs/favicons/favicon-32x32.png",
+            },
+            {
+                rel: "icon",
+                type: "image/png",
+                sizes: "16x16",
+                url: "/imgs/favicons/favicon-16x16.png",
+            },
+            {
+                rel: "icon",
+                type: "image/x-icon",
+                sizes: "16x16",
+                url: "/imgs/favicons/favicon.ico",
+            },
+        ],
         openGraph: {
             title: SITE_CONFIG.name,
             description: SITE_CONFIG.description,
@@ -27,7 +95,7 @@ export function generateMetadata(): Metadata {
             locale: "en_US",
             type: "website",
             images: {
-                url: `${NEXT_PUBLIC_BASE_URL}/og.jpg`,
+                url: `${NEXT_PUBLIC_BASE_URL}/imgs/og.png`,
                 width: 3840,
                 height: 2010,
             },
