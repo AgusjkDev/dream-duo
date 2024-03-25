@@ -95,7 +95,7 @@ export function generateMetadata(): Metadata {
             locale: "en_US",
             type: "website",
             images: {
-                url: `${NEXT_PUBLIC_BASE_URL}/og.jpg`,
+                url: `${NEXT_PUBLIC_BASE_URL}/imgs/og.png`,
                 width: 3840,
                 height: 2010,
             },
