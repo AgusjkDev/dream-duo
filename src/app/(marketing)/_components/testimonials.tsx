@@ -76,14 +76,15 @@ export default function Testimonials() {
     return (
         <SectionLayout title="Insights from our community">
             <Carousel
-                className="w-[72.5%] max-w-xs xl:w-full xl:max-w-[1088px]"
+                opts={{ align: "start" }}
                 plugins={[Autoplay({ delay: 3000 })]}
+                className="w-[72.5%] max-w-xs lg:w-full lg:max-w-[704px] xl:max-w-[1088px]"
             >
                 <CarouselPrevious />
 
-                <CarouselContent className="-ml-8 xl:-ml-16">
+                <CarouselContent className="-ml-8 lg:-ml-16">
                     {TESTIMONIALS.map(({ key, title, description }) => (
-                        <CarouselItem key={key} className="pl-8 xl:basis-1/3 xl:pl-16">
+                        <CarouselItem key={key} className="pl-8 lg:basis-1/2 xl:basis-1/3 lg:pl-16">
                             <Card className="aspect-square h-full w-full">
                                 <CardHeader className="relative">
                                     <CardTitle className="flex items-center justify-between">
