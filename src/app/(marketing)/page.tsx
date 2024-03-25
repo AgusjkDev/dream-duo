@@ -1,8 +1,8 @@
+import ThemeSwitch from "@/components/theme-switch";
 import Hero from "./_components/hero";
 import Features from "./_components/features";
 import Testimonials from "./_components/testimonials";
 import Footer from "./_components/footer";
-import ThemeSwitch from "@/components/theme-switch";
 
 export default function Index() {
     return (
