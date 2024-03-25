@@ -19,7 +19,11 @@ export default function Hero() {
                 </Link>
             </div>
 
-            <a aria-label="See more" href="#features" className="absolute bottom-4">
+            <a
+                aria-label="See more"
+                href="#features"
+                className="absolute bottom-4 rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
                 <DownArrow
                     className="aspect-square w-8 animate-bounce stroke-2 stroke-primary md:w-10"
                     strokeLinecap="round"

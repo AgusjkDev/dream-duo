@@ -64,7 +64,7 @@ export default function Footer() {
                             {anchors.map(({ key, ...props }) => (
                                 <Link
                                     key={key}
-                                    className="text-muted-foreground text-sm underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                                    className="rounded-md text-muted-foreground text-sm underline-offset-4 transition-colors focus-visible:text-foreground hover:text-foreground focus-visible:underline hover:underline focus-visible:outline-none"
                                     {...props}
                                 />
                             ))}
