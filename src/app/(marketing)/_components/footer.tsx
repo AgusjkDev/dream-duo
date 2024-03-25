@@ -38,7 +38,8 @@ const NAVIGATION = [
 ] satisfies {
     key: string;
     title: string;
-    anchors: ({ key: string; children: React.ReactNode } & LinkProps)[];
+    anchors: ({ key: string; children: React.ReactNode } & React.ComponentPropsWithoutRef<"a"> &
+        LinkProps)[];
 }[];
 
 const PARAGRAPHS = [
