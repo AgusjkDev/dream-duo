@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/use-toast";
 import { Spinner } from "@/components/svgs";
 import { signup, login } from "@/lib/auth";
 import { signupSchema, loginSchema } from "@/lib/schemas";
@@ -48,9 +49,12 @@ export default function AuthForm({ variant }: Readonly<AuthFormProps>) {
             ? signup(values)
             : login(values));
         if (success) {
-            alert(
-                variant === "signup" ? "Account created successfully." : "Logged in successfully.",
-            );
+            toast({
+                description:
+                    variant === "signup"
+                        ? "Account created successfully."
+                        : "Logged in successfully.",
+            });
 
             return router.push(searchParams.get("next") ?? "/");
         }
@@ -58,7 +62,7 @@ export default function AuthForm({ variant }: Readonly<AuthFormProps>) {
         if (variant === "login") form.reset();
 
         setIsLoading(false);
-        alert(error);
+        toast({ description: error, variant: "destructive" });
     }
 
     return (

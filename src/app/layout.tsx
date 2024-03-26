@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import type { Metadata } from "next";
 
+import { Toaster } from "@/components/ui/toaster";
 import ThemeProvider from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import { SITE_CONFIG, NEXT_PUBLIC_BASE_URL } from "@/lib/constants";
@@ -122,7 +123,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={cn(GeistSans.variable, GeistMono.variable)}>
-                <ThemeProvider>{children}</ThemeProvider>
+                <ThemeProvider>
+                    {children}
+
+                    <Toaster />
+                </ThemeProvider>
             </body>
         </html>
     );
