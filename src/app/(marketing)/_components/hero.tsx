@@ -14,7 +14,10 @@ export default function Hero() {
                     Dream Duo
                 </h1>
 
-                <Link href="#" className={cn(buttonVariants({ variant: "shine", size: "lg" }))}>
+                <Link
+                    href="/signup"
+                    className={cn(buttonVariants({ variant: "shine", size: "lg" }))}
+                >
                     Join now
                 </Link>
             </div>
