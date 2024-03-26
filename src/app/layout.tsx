@@ -87,6 +87,7 @@ export function generateMetadata(): Metadata {
                 url: "/imgs/favicons/favicon.ico",
             },
         ],
+        metadataBase: NEXT_PUBLIC_BASE_URL ? new URL(NEXT_PUBLIC_BASE_URL) : null,
         openGraph: {
             title: SITE_CONFIG.name,
             description: SITE_CONFIG.description,
