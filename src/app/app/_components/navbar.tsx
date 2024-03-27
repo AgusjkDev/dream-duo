@@ -1,5 +1,6 @@
 import Link, { type LinkProps } from "next/link";
 
+import TitleAnchor from "@/components/title-anchor";
 import {
     Home,
     User,
@@ -11,7 +12,6 @@ import {
     type SvgType,
 } from "@/components/svgs";
 import { cn } from "@/lib/utils";
-import TitleAnchor from "./title-anchor";
 
 const NAVIGATION: ({
     key: string;
@@ -72,7 +72,7 @@ export default function Navbar({ onNavigationClick }: Readonly<NavbarProps>) {
     return (
         <div className="flex h-full flex-col gap-y-5 pt-5">
             <TitleAnchor
-                className="text-2xl md:text-xl"
+                className="mx-auto text-2xl md:text-xl"
                 {...(onNavigationClick && { onClick: onNavigationClick })}
             />
 

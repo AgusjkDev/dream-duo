@@ -1,6 +1,6 @@
+import TitleAnchor from "@/components/title-anchor";
 import ThemeSwitch from "@/components/theme-switch";
 import MobileSheet from "./_components/mobile-sheet";
-import TitleAnchor from "./_components/title-anchor";
 import Navbar from "./_components/navbar";
 
 export default function AppLayout({ children }: Readonly<{ children: React.ReactNode }>) {
