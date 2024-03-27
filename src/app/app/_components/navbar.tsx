@@ -10,6 +10,7 @@ import {
     Settings,
     type SvgType,
 } from "@/components/svgs";
+import { cn } from "@/lib/utils";
 import TitleAnchor from "./title-anchor";
 
 const NAVIGATION: ({
@@ -76,11 +77,14 @@ export default function Navbar({ onNavigationClick }: Readonly<NavbarProps>) {
             />
 
             <nav className="flex h-full flex-col">
-                {NAVIGATION.map(({ key, svg: Svg, children, href, ...props }) => (
+                {NAVIGATION.map(({ key, svg: Svg, children, href, className, ...props }) => (
                     <Link
                         key={key}
                         href={`/app${href}`}
-                        className="group flex w-full gap-x-2.5 p-3.5 transition-colors md:last:mt-auto hover:bg-muted"
+                        className={cn(
+                            "group flex w-full gap-x-2.5 p-3.5 transition-colors md:last:mt-auto hover:bg-muted",
+                            className,
+                        )}
                         {...(onNavigationClick && { onClick: onNavigationClick })}
                         {...props}
                     >

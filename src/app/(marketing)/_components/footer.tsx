@@ -64,13 +64,14 @@ export default function Footer() {
                         <h4 className="font-medium">{title}</h4>
 
                         <nav className="flex flex-col items-start gap-y-1 lg:gap-y-0.5">
-                            {anchors.map(({ key, ...props }) => (
+                            {anchors.map(({ key, className, ...props }) => (
                                 <Link
                                     key={key}
                                     {...props}
                                     className={cn(
                                         buttonVariants({ variant: "link", size: "inherit" }),
                                         "text-sm",
+                                        className,
                                     )}
                                 />
                             ))}
