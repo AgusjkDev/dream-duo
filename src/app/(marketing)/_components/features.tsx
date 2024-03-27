@@ -7,7 +7,7 @@ import {
 import AnimatedGradientBorderCard from "@/components/animated-gradient-border-card";
 import SectionLayout from "./section-layout";
 
-const FEATURES = [
+const FEATURES: { key: string; svg: SvgType; title: string; description: string }[] = [
     {
         key: "find-your-perfect-match",
         svg: PerfectMatch,
@@ -29,7 +29,7 @@ const FEATURES = [
         description:
             "Your privacy is our top priority. Our app employs state-of-the-art security measures to ensure a safe and enjoyable experience for all users.",
     },
-] satisfies { key: string; svg: SvgType; title: string; description: string }[];
+];
 
 export default function Features() {
     return (

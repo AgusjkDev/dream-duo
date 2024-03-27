@@ -12,7 +12,13 @@ import {
 } from "@/components/svgs";
 import TitleAnchor from "./title-anchor";
 
-const NAVIGATION = [
+const NAVIGATION: ({
+    key: string;
+    svg: SvgType;
+    children: React.ReactNode;
+    href: string;
+} & React.ComponentPropsWithoutRef<"a"> &
+    LinkProps)[] = [
     {
         key: "home",
         svg: Home,
@@ -55,13 +61,7 @@ const NAVIGATION = [
         children: "Settings",
         href: "/settings",
     },
-] satisfies ({
-    key: string;
-    svg: SvgType;
-    children: React.ReactNode;
-    href: string;
-} & React.ComponentPropsWithoutRef<"a"> &
-    LinkProps)[];
+];
 
 interface NavbarProps {
     onNavigationClick?: () => void;

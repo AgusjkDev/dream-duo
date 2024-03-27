@@ -3,8 +3,8 @@ import type { User } from "@prisma/client";
 
 import { verify, sign, EXPIRATION } from "@/lib/jwt";
 
-const PROTECTED_ROUTES = [] satisfies string[];
-const AUTH_ROUTES = ["/signup", "/login"] satisfies string[];
+const PROTECTED_ROUTES: string[] = [];
+const AUTH_ROUTES: string[] = ["/signup", "/login"];
 
 export default async function middleware(req: NextRequest) {
     const { origin, pathname } = req.nextUrl;

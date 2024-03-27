@@ -13,7 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { QuoteRight } from "@/components/svgs";
 import SectionLayout from "./section-layout";
 
-const TESTIMONIALS = [
+const TESTIMONIALS: { key: string; title: string; description: string | string[] }[] = [
     {
         key: "alice-john",
         title: "Alice & John",
@@ -70,7 +70,7 @@ const TESTIMONIALS = [
             "Our journey is proof that the right connection can transform your life. So if you're searching for that spark, you might just be in the place to find it.",
         ],
     },
-] satisfies { key: string; title: string; description: string | string[] }[];
+];
 
 export default function Testimonials() {
     return (

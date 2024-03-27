@@ -4,7 +4,12 @@ import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
-const NAVIGATION = [
+const NAVIGATION: {
+    key: string;
+    title: string;
+    anchors: ({ key: string; children: React.ReactNode } & React.ComponentPropsWithoutRef<"a"> &
+        LinkProps)[];
+}[] = [
     {
         key: "legal",
         title: "Legal",
@@ -35,14 +40,9 @@ const NAVIGATION = [
             { key: "x", href: "#", children: "X (Formerly Twitter)" },
         ],
     },
-] satisfies {
-    key: string;
-    title: string;
-    anchors: ({ key: string; children: React.ReactNode } & React.ComponentPropsWithoutRef<"a"> &
-        LinkProps)[];
-}[];
+];
 
-const PARAGRAPHS = [
+const PARAGRAPHS: { key: string; content: string }[] = [
     {
         key: "privacy-and-security",
         content:
@@ -53,7 +53,7 @@ const PARAGRAPHS = [
         content:
             "Your trust means everything to us. We're dedicated to upholding integrity and professionalism. If you have any concerns, please reach out. We're here to support you every step of the way, ensuring your experience with Dream Duo is exceptional. Thank you for choosing us as your preferred dating app.",
     },
-] satisfies { key: string; content: string }[];
+];
 
 export default function Footer() {
     return (
