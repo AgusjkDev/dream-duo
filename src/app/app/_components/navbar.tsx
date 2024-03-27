@@ -82,7 +82,7 @@ export default function Navbar({ onNavigationClick }: Readonly<NavbarProps>) {
                         key={key}
                         href={`/app${href}`}
                         className={cn(
-                            "group flex w-full gap-x-2.5 p-3.5 transition-colors md:last:mt-auto hover:bg-muted",
+                            "group flex w-full gap-x-2.5 p-3.5 transition-colors md:last:mt-auto focus-visible:bg-muted hover:bg-muted focus-visible:outline-none",
                             className,
                         )}
                         {...(onNavigationClick && { onClick: onNavigationClick })}
