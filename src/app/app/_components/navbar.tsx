@@ -37,6 +37,8 @@ const NAVIGATION: ({
         svg: Search,
         children: "Discover",
         href: "/discover",
+        className:
+            "relative after:content-['Premium'] after:absolute after:top-1/2 after:right-4 after:rounded-md after:px-2 after:py-1 after:text-[10px] after:font-semibold after:bg-primary after:-translate-y-1/2 after:leading-none",
     },
     {
         key: "chats",
