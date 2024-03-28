@@ -56,7 +56,7 @@ export default function AuthForm({ variant }: Readonly<AuthFormProps>) {
                         : "Logged in successfully.",
             });
 
-            return router.push(searchParams.get("next") ?? "/");
+            return router.push(searchParams.get("next") ?? "/app");
         }
 
         if (variant === "login") form.reset();
