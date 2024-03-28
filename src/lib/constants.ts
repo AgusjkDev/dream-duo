@@ -12,3 +12,6 @@ export const SITE_CONFIG = {
         "Dream Duo, online dating, real-time matchmaking, instant connections, perfect match, dating preferences, matchmaking service, dating app",
     author: "Agustín Arnoldi",
 };
+
+export const MIN_AGE = 18;
+export const MAX_AGE = 128;

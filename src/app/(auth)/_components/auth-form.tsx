@@ -106,6 +106,27 @@ export default function AuthForm({ variant }: Readonly<AuthFormProps>) {
                                 </FormItem>
                             )}
                         />
+
+                        <FormField
+                            control={form.control}
+                            name="age"
+                            render={({ field: { onChange, ...field } }) => (
+                                <FormItem>
+                                    <FormLabel>Age</FormLabel>
+
+                                    <FormControl>
+                                        <Input
+                                            placeholder="Age"
+                                            type="number"
+                                            onChange={(e) => onChange(Number(e.target.value))}
+                                            {...field}
+                                        />
+                                    </FormControl>
+
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
                     </>
                 )}
 

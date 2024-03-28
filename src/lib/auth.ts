@@ -20,7 +20,7 @@ export async function signup(values: z.infer<typeof signupSchema>): Promise<Auth
             return { success: false, error: "Fields are invalid!" };
         }
 
-        const { firstname, lastname, password } = parsed.data;
+        const { firstname, lastname, age, password } = parsed.data;
         const email = parsed.data.email.toLowerCase();
 
         const existingUser = await db.user.findUnique({ where: { email } });
@@ -32,6 +32,7 @@ export async function signup(values: z.infer<typeof signupSchema>): Promise<Auth
             data: {
                 firstname: capitalizeName(firstname),
                 lastname: capitalizeName(lastname),
+                age,
                 email,
                 password: await bcrypt.hash(password, 10),
             },

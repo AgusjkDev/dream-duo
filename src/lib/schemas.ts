@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import regex from "./regex";
+import { MIN_AGE, MAX_AGE } from "./constants";
 
 export const loginSchema = z.object({
     email: z.string().email({ message: "Invalid email address format." }),
@@ -26,6 +27,14 @@ export const signupSchema = loginSchema
             .min(3, { message: "Last name must be at least 3 characters long." })
             .max(35, { message: "Last name is too long!" })
             .regex(regex.name, { message: "Invalid last name format." }),
+        age: z
+            .number({ required_error: "A" })
+            .min(MIN_AGE, {
+                message: `Age must be greater or equal to ${MIN_AGE}!`,
+            })
+            .max(MAX_AGE, {
+                message: "Age exceeds maximum limit specified in terms of service.",
+            }),
         confirmPassword: z.string().refine(Boolean, { message: "This field is required." }),
     })
     .refine(({ password, confirmPassword }) => password === confirmPassword, {
