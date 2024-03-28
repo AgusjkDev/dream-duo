@@ -1,8 +1,5 @@
-import Link from "next/link";
-
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { HeroBackground, DownArrow } from "@/components/svgs";
+import CallToAction from "./call-to-action";
 
 export default function Hero() {
     return (
@@ -14,12 +11,7 @@ export default function Hero() {
                     Dream Duo
                 </h1>
 
-                <Link
-                    href="/signup"
-                    className={cn(buttonVariants({ variant: "shine", size: "lg" }))}
-                >
-                    Join now
-                </Link>
+                <CallToAction />
             </div>
 
             <a
