@@ -7,7 +7,7 @@ export default function Hero() {
             <HeroBackground className="-z-[1] -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 h-dvh w-[92.5%] max-w-screen-sm animate-pulse fill-none stroke-[4px] stroke-primary drop-shadow-primary-lg 2xl:max-w-screen-lg" />
 
             <div className="row-span-2 flex flex-col items-center gap-y-3">
-                <h1 className="text-center text-primary text-title drop-shadow-primary-lg">
+                <h1 className="text-center text-primary text-title drop-shadow-primary-lg selection:text-primary">
                     Dream Duo
                 </h1>
 
