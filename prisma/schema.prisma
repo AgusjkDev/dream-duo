@@ -12,6 +12,8 @@ model User {
     firstname String
     lastname  String
     age       Int
+    weight    Int?
+    height    Int?
     email     String   @unique
     password  String
     createdAt DateTime @default(now()) @map(name: "created_at")

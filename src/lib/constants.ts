@@ -15,3 +15,5 @@ export const SITE_CONFIG = {
 
 export const MIN_AGE = 18;
 export const MAX_AGE = 128;
+export const MAX_WEIGHT = 512;
+export const MAX_HEIGHT = 512;

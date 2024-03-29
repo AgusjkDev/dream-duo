@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import regex from "./regex";
-import { MIN_AGE, MAX_AGE } from "./constants";
+import { MIN_AGE, MAX_AGE, MAX_WEIGHT, MAX_HEIGHT } from "./constants";
 
 const email = z.string().email({ message: "Invalid email address format." });
 const password = z
@@ -47,3 +47,29 @@ export const signupSchema = loginSchema
         path: ["confirmPassword"],
         message: "Passwords don't match!",
     });
+
+export const profileSchema = z.object({
+    firstname: firstname.optional(),
+    lastname: lastname.optional(),
+    age: age.optional(),
+    weight: z
+        .number({ required_error: "This field is required." })
+        .min(1, {
+            message: "Weight must be greater than zero! Make sure it is expressed in kilograms.",
+        })
+        .max(MAX_WEIGHT, {
+            message:
+                "Weight exceeds maximum limit specified in terms of service. Make sure it is expressed in kilograms.",
+        })
+        .optional(),
+    height: z
+        .number({ required_error: "This field is required." })
+        .min(1, {
+            message: "Height must be greater than zero! Make sure it is expressed in centimeters.",
+        })
+        .max(MAX_HEIGHT, {
+            message:
+                "Height exceeds maximum limit specified in terms of service. Make sure it is expressed in centimeters.",
+        })
+        .optional(),
+});
