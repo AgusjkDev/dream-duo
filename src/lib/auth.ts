@@ -37,8 +37,7 @@ export async function signup(values: z.infer<typeof signupSchema>): Promise<Auth
                 password: await bcrypt.hash(password, 10),
             },
         });
-        const { password: _, ...rest } = user;
-        const token = await sign({ user: rest });
+        const token = await sign({ user: { id: user.id } });
         if (!token) {
             return { success: false, error: "There was an error while generating the session!" };
         }
@@ -67,8 +66,7 @@ export async function login(values: z.infer<typeof loginSchema>): Promise<AuthRe
             return { success: false, error: "Invalid credentials!" };
         }
 
-        const { password: _, ...rest } = user;
-        const token = await sign({ user: rest });
+        const token = await sign({ user: { id: user.id } });
         if (!token) {
             return { success: false, error: "There was an error while generating the session!" };
         }
@@ -83,7 +81,7 @@ export async function login(values: z.infer<typeof loginSchema>): Promise<AuthRe
     }
 }
 
-export async function getSession(): Promise<{ user: Omit<User, "password"> } | null> {
+export async function getSession(): Promise<{ user: Pick<User, "id"> } | null> {
     const token = cookies().get("token")?.value;
     if (!token) return null;
 

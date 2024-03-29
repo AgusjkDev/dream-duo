@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type z from "zod";
-import type { User } from "@prisma/client";
 
 import {
     Form,
@@ -20,15 +19,12 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 import { Spinner } from "@/components/svgs";
 import { profileSchema } from "@/lib/schemas";
+import { useAppContext } from "../../../_context/app-context";
 import { updateProfile } from "../../_actions";
 import FieldGroup from "./field-group";
 
-interface ProfileFormProps {
-    profile: Omit<User, "password">;
-}
-
-export default function ProfileForm({ profile }: Readonly<ProfileFormProps>) {
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+export default function ProfileForm() {
+    const { profile } = useAppContext();
     const form = useForm<z.infer<typeof profileSchema>>({
         resolver: zodResolver(profileSchema),
         defaultValues: {
@@ -37,6 +33,7 @@ export default function ProfileForm({ profile }: Readonly<ProfileFormProps>) {
             ),
         },
     });
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     async function onSubmit(values: z.infer<typeof profileSchema>) {
         setIsLoading(true);
@@ -48,7 +45,7 @@ export default function ProfileForm({ profile }: Readonly<ProfileFormProps>) {
         ) {
             toast({ description: "No changes were made." });
         } else {
-            const { success, error } = await updateProfile(values);
+            const { success, error } = await updateProfile(profile, values);
 
             toast({
                 description: success ? "Profile updated successfully." : error,
@@ -56,7 +53,6 @@ export default function ProfileForm({ profile }: Readonly<ProfileFormProps>) {
             });
         }
 
-        form.reset();
         setIsLoading(false);
     }
 

@@ -1,17 +1,31 @@
 "use server";
+
+import { revalidatePath } from "next/cache";
 import type z from "zod";
+import type { User } from "@prisma/client";
 
 import db from "@/lib/db";
-import { profileSchema } from "@/lib/schemas";
 import { getSession } from "@/lib/auth";
-import { revalidatePath } from "next/cache";
+import { profileSchema } from "@/lib/schemas";
 
-export const DISABLED_FIELDS = ["firstname", "lastname", "age"] as const;
-export async function updateProfile(values: z.infer<typeof profileSchema>) {
+const DISABLED_FIELDS: (keyof User)[] = [
+    "id",
+    "firstname",
+    "lastname",
+    "age",
+    "email",
+    "password",
+    "createdAt",
+    "updatedAt",
+];
+export async function updateProfile(
+    profile: Omit<User, "password">,
+    values: z.infer<typeof profileSchema>,
+) {
     try {
         const session = await getSession();
-        if (!session) {
-            return { success: false, error: "Not authorized!" };
+        if (!session || session.user.id !== profile.id) {
+            return { success: false };
         }
 
         const parsed = await profileSchema.safeParseAsync(values);
@@ -19,18 +33,22 @@ export async function updateProfile(values: z.infer<typeof profileSchema>) {
             return { success: false, error: "Fields are invalid!" };
         }
 
-        const { data } = parsed;
-        const { user: profile } = session;
         if (
-            Object.entries(data)
+            Object.entries(parsed.data)
                 .filter(([_, v]) => v !== undefined)
                 .every(([k, v]) => v === profile[k as keyof typeof profile])
         ) {
-            return { success: true, error: "No changes were made." };
+            return { success: true };
         }
 
-        await db.user.update({ where: { id: profile.id }, data });
-        revalidatePath("/app/profile", "page");
+        await db.user.update({
+            where: { id: session.user.id },
+            data: {
+                ...parsed.data,
+                ...Object.fromEntries(DISABLED_FIELDS.map((field) => [field, undefined])),
+            },
+        });
+        revalidatePath("/app", "layout");
 
         return { success: true };
     } catch (e) {
