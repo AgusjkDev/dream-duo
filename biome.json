@@ -37,7 +37,8 @@
             },
             "suspicious": {
                 "noEmptyBlockStatements": "warn",
-                "useAwait": "warn"
+                "useAwait": "warn",
+                "noDoubleEquals": "off"
             },
             "nursery": {
                 "noBarrelFile": "error",
