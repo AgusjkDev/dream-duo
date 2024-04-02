@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { format } from "date-fns";
 import type z from "zod";
 
 import {
@@ -15,11 +16,15 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import { toast } from "@/components/ui/use-toast";
-import { Spinner } from "@/components/svgs";
+import { Calendar as CalendarIcon, Spinner } from "@/components/svgs";
 import { signup, login } from "@/lib/auth";
 import { signupSchema, loginSchema } from "@/lib/schemas";
+import { MIN_BIRTHDATE, MAX_BIRTHDATE } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 interface AuthFormProps {
     variant: "signup" | "login";
@@ -109,20 +114,47 @@ export default function AuthForm({ variant }: Readonly<AuthFormProps>) {
 
                         <FormField
                             control={form.control}
-                            name="age"
-                            render={({ field: { onChange, ...field } }) => (
-                                <FormItem>
-                                    <FormLabel>Age</FormLabel>
+                            name="birthdate"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-col">
+                                    <FormLabel>Date of birth</FormLabel>
 
-                                    <FormControl>
-                                        <Input
-                                            placeholder="Age"
-                                            type="number"
-                                            onChange={(e) => onChange(Number(e.target.value))}
-                                            {...field}
-                                        />
-                                    </FormControl>
+                                    <Popover>
+                                        <PopoverTrigger asChild>
+                                            <FormControl>
+                                                <Button
+                                                    variant="outline"
+                                                    className={cn(
+                                                        "justify-between bg-transparent pl-3 font-normal",
+                                                        !field.value && "text-muted-foreground",
+                                                    )}
+                                                >
+                                                    <span>
+                                                        {field.value
+                                                            ? format(field.value, "PPP")
+                                                            : "Select your birth date"}
+                                                    </span>
 
+                                                    <CalendarIcon className="aspect-square w-4 fill-foreground opacity-50" />
+                                                </Button>
+                                            </FormControl>
+                                        </PopoverTrigger>
+
+                                        <PopoverContent className="w-auto p-0" align="start">
+                                            <Calendar
+                                                initialFocus
+                                                mode="single"
+                                                captionLayout="dropdown-buttons"
+                                                fromYear={MIN_BIRTHDATE.getUTCFullYear()}
+                                                toYear={new Date().getUTCFullYear()}
+                                                selected={field.value}
+                                                onSelect={field.onChange}
+                                                disabled={(date) =>
+                                                    date > MAX_BIRTHDATE || date < MIN_BIRTHDATE
+                                                }
+                                            />
+                                        </PopoverContent>
+                                    </Popover>
                                     <FormMessage />
                                 </FormItem>
                             )}

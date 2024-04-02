@@ -8,16 +8,6 @@ import db from "@/lib/db";
 import { getSession } from "@/lib/auth";
 import { profileSchema } from "@/lib/schemas";
 
-const DISABLED_FIELDS: (keyof User)[] = [
-    "id",
-    "firstname",
-    "lastname",
-    "age",
-    "email",
-    "password",
-    "createdAt",
-    "updatedAt",
-];
 export async function updateProfile(
     profile: Omit<User, "password">,
     values: z.infer<typeof profileSchema>,
@@ -36,7 +26,14 @@ export async function updateProfile(
         if (
             Object.entries(parsed.data)
                 .filter(([_, v]) => v !== undefined)
-                .every(([k, v]) => v === profile[k as keyof typeof profile])
+                .every(([k, v]) => {
+                    const profileValue = profile.data[k as keyof typeof profile.data];
+                    if (v instanceof Date && profileValue instanceof Date) {
+                        return v.getTime() === profileValue.getTime();
+                    }
+
+                    return v === profileValue;
+                })
         ) {
             return { success: true };
         }
@@ -44,8 +41,14 @@ export async function updateProfile(
         await db.user.update({
             where: { id: session.user.id },
             data: {
-                ...parsed.data,
-                ...Object.fromEntries(DISABLED_FIELDS.map((field) => [field, undefined])),
+                data: {
+                    update: {
+                        ...parsed.data,
+                        firstname: undefined,
+                        lastname: undefined,
+                        birthdate: undefined,
+                    },
+                },
             },
         });
         revalidatePath("/app", "layout");

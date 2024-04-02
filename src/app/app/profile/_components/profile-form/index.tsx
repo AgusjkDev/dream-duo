@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { format } from "date-fns";
 import type z from "zod";
 
 import {
@@ -15,10 +16,14 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import { toast } from "@/components/ui/use-toast";
-import { Spinner } from "@/components/svgs";
+import { Calendar as CalendarIcon, Spinner } from "@/components/svgs";
 import { profileSchema } from "@/lib/schemas";
+import { MAX_BIRTHDATE, MIN_BIRTHDATE } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import { useAppContext } from "../../../_context/app-context";
 import { updateProfile } from "../../_actions";
 import FieldGroup from "./field-group";
@@ -29,7 +34,7 @@ export default function ProfileForm() {
         resolver: zodResolver(profileSchema),
         defaultValues: {
             ...Object.fromEntries(
-                Object.entries(profile).map(([k, v]) => [k, v == null ? undefined : v]),
+                Object.entries(profile.data).map(([k, v]) => [k, v == null ? undefined : v]),
             ),
         },
     });
@@ -41,7 +46,14 @@ export default function ProfileForm() {
         if (
             Object.entries(values)
                 .filter(([_, v]) => v !== undefined)
-                .every(([k, v]) => v === profile[k as keyof typeof profile])
+                .every(([k, v]) => {
+                    const profileValue = profile.data[k as keyof typeof profile.data];
+                    if (v instanceof Date && profileValue instanceof Date) {
+                        return v.getTime() === profileValue.getTime();
+                    }
+
+                    return v === profileValue;
+                })
         ) {
             toast({ description: "No changes were made." });
         } else {
@@ -108,26 +120,49 @@ export default function ProfileForm() {
                     />
 
                     <FormField
-                        disabled
                         control={form.control}
-                        name="age"
-                        render={({ field: { onChange, ...field } }) => (
-                            <FormItem>
-                                <FormLabel>Age</FormLabel>
+                        name="birthdate"
+                        render={({ field }) => (
+                            <FormItem className="flex flex-col">
+                                <FormLabel>Date of birth</FormLabel>
 
-                                <FormControl>
-                                    <Input
-                                        placeholder="Age"
-                                        type="number"
-                                        onChange={(e) => onChange(Number(e.target.value))}
-                                        {...field}
-                                    />
-                                </FormControl>
+                                <Popover>
+                                    <PopoverTrigger asChild>
+                                        <FormControl>
+                                            <Button
+                                                disabled
+                                                variant="outline"
+                                                className={cn(
+                                                    "justify-between bg-transparent pl-3 font-normal",
+                                                    !field.value && "text-muted-foreground",
+                                                )}
+                                            >
+                                                <span>
+                                                    {field.value
+                                                        ? format(field.value, "PPP")
+                                                        : "Select your birth date"}
+                                                </span>
 
-                                <FormDescription>
-                                    Updating this field is not available at the moment&#46;
-                                </FormDescription>
+                                                <CalendarIcon className="aspect-square w-4 fill-foreground opacity-50" />
+                                            </Button>
+                                        </FormControl>
+                                    </PopoverTrigger>
 
+                                    <PopoverContent className="w-auto p-0" align="start">
+                                        <Calendar
+                                            initialFocus
+                                            mode="single"
+                                            captionLayout="dropdown-buttons"
+                                            fromYear={MIN_BIRTHDATE.getUTCFullYear()}
+                                            toYear={new Date().getUTCFullYear()}
+                                            selected={field.value}
+                                            onSelect={field.onChange}
+                                            disabled={(date) =>
+                                                date > MAX_BIRTHDATE || date < MIN_BIRTHDATE
+                                            }
+                                        />
+                                    </PopoverContent>
+                                </Popover>
                                 <FormMessage />
                             </FormItem>
                         )}

@@ -13,7 +13,12 @@ export const SITE_CONFIG = {
     author: "Agustín Arnoldi",
 };
 
-export const MIN_AGE = 18;
-export const MAX_AGE = 128;
+const currentDate = new Date();
+export const MAX_BIRTHDATE = new Date(
+    currentDate.getUTCFullYear() - 18,
+    currentDate.getUTCMonth(),
+    currentDate.getUTCDate(),
+);
+export const MIN_BIRTHDATE = new Date("1900-01-01");
 export const MAX_WEIGHT = 512;
 export const MAX_HEIGHT = 512;

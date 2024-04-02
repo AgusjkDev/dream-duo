@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import regex from "./regex";
-import { MIN_AGE, MAX_AGE, MAX_WEIGHT, MAX_HEIGHT } from "./constants";
+import { MIN_BIRTHDATE, MAX_BIRTHDATE, MAX_WEIGHT, MAX_HEIGHT } from "./constants";
 
 const email = z.string().email({ message: "Invalid email address format." });
 const password = z
@@ -22,14 +22,10 @@ const lastname = z
     .min(3, { message: "Last name must be at least 3 characters long." })
     .max(35, { message: "Last name is too long!" })
     .regex(regex.name, { message: "Invalid last name format." });
-const age = z
-    .number({ required_error: "A" })
-    .min(MIN_AGE, {
-        message: `Age must be greater or equal to ${MIN_AGE}!`,
-    })
-    .max(MAX_AGE, {
-        message: "Age exceeds maximum limit specified in terms of service.",
-    });
+const birthdate = z
+    .date()
+    .min(MIN_BIRTHDATE, { message: "Invalid birth date." })
+    .max(MAX_BIRTHDATE, { message: "Invalid birth date." });
 
 export const loginSchema = z.object({
     email,
@@ -40,7 +36,7 @@ export const signupSchema = loginSchema
     .extend({
         firstname,
         lastname,
-        age,
+        birthdate,
         confirmPassword: z.string().refine(Boolean, { message: "This field is required." }),
     })
     .refine(({ password, confirmPassword }) => password === confirmPassword, {
@@ -51,7 +47,7 @@ export const signupSchema = loginSchema
 export const profileSchema = z.object({
     firstname: firstname.optional(),
     lastname: lastname.optional(),
-    age: age.optional(),
+    birthdate: birthdate.optional(),
     weight: z
         .number({ required_error: "This field is required." })
         .min(1, {
