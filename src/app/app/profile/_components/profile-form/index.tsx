@@ -171,7 +171,7 @@ export default function ProfileForm() {
                     <FormField
                         control={form.control}
                         name="weight"
-                        render={({ field: { onChange, ...field } }) => (
+                        render={({ field: { value, onChange, ...field } }) => (
                             <FormItem>
                                 <FormLabel>Weight</FormLabel>
 
@@ -179,6 +179,7 @@ export default function ProfileForm() {
                                     <Input
                                         placeholder="Weight"
                                         type="number"
+                                        value={value ?? ""}
                                         onChange={(e) => onChange(Number(e.target.value))}
                                         {...field}
                                     />
@@ -196,7 +197,7 @@ export default function ProfileForm() {
                     <FormField
                         control={form.control}
                         name="height"
-                        render={({ field: { onChange, ...field } }) => (
+                        render={({ field: { value, onChange, ...field } }) => (
                             <FormItem>
                                 <FormLabel>Height</FormLabel>
 
@@ -204,6 +205,7 @@ export default function ProfileForm() {
                                     <Input
                                         placeholder="Height"
                                         type="number"
+                                        value={value ?? ""}
                                         onChange={(e) => onChange(Number(e.target.value))}
                                         {...field}
                                     />
