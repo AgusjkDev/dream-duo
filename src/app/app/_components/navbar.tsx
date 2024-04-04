@@ -1,16 +1,16 @@
 import Link, { type LinkProps } from "next/link";
 
-import TitleAnchor from "@/components/title-anchor";
 import {
-    Home,
-    User,
-    Search,
-    Chats,
     Bell,
+    Chats,
     History,
+    Home,
+    Search,
     Settings,
+    User,
     type SvgType,
 } from "@/components/svgs";
+import TitleAnchor from "@/components/title-anchor";
 import { cn } from "@/lib/utils";
 
 const NAVIGATION: ({
@@ -84,7 +84,7 @@ export default function Navbar({ onNavigationClick }: Readonly<NavbarProps>) {
                         key={key}
                         href={`/app${href}`}
                         className={cn(
-                            "group flex w-full gap-x-2.5 p-3.5 transition-colors md:last:mt-auto focus-visible:bg-muted hover:bg-muted focus-visible:outline-none",
+                            "group flex w-full gap-x-2.5 p-3.5 transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:outline-none md:last:mt-auto",
                             className,
                         )}
                         {...(onNavigationClick && { onClick: onNavigationClick })}

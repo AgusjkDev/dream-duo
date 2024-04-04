@@ -55,11 +55,11 @@
     }
 
     html {
-        @apply scroll-smooth scrollbar lg:snap-y lg:snap-mandatory;
+        @apply scrollbar scroll-smooth lg:snap-y lg:snap-mandatory;
     }
 
     body {
-        @apply bg-background text-foreground font-sans;
+        @apply bg-background font-sans text-foreground;
     }
 }
 

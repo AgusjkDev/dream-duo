@@ -2,16 +2,17 @@ import { Suspense } from "react";
 
 import {
     Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
     CardHeader,
     CardTitle,
-    CardDescription,
-    CardContent,
-    CardFooter,
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
-import AuthForm from "./auth-form";
+
 import AuthAlternateLink, { type AuthAlternateLinkProps } from "./auth-alternate-link";
+import AuthForm from "./auth-form";
 
 interface AuthCardProps {
     variant: "signup" | "login";
@@ -45,7 +46,7 @@ export default function AuthCard({ variant, title, description, footer }: Readon
 
                 <CardFooter>
                     <p className="flex gap-x-1">
-                        <span className="text-muted-foreground text-xs">{footer.text}</span>
+                        <span className="text-xs text-muted-foreground">{footer.text}</span>
 
                         <AuthAlternateLink {...footer.link} />
                     </p>

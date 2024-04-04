@@ -2,13 +2,13 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import type { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import type z from "zod";
-import type { User } from "@prisma/client";
 
 import db from "@/lib/db";
-import { sign, verify, EXPIRATION } from "@/lib/jwt";
-import { signupSchema, loginSchema } from "@/lib/schemas";
+import { EXPIRATION, sign, verify } from "@/lib/jwt";
+import { loginSchema, signupSchema } from "@/lib/schemas";
 import { capitalizeName } from "@/lib/utils";
 
 type AuthResponse = { success: true; error?: undefined } | { success: false; error: string };

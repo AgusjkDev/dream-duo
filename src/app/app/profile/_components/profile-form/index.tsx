@@ -1,31 +1,32 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
+import { useForm } from "react-hook-form";
 import type z from "zod";
 
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
     Form,
+    FormControl,
+    FormDescription,
     FormField,
     FormItem,
     FormLabel,
-    FormControl,
-    FormDescription,
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import { toast } from "@/components/ui/use-toast";
 import { Calendar as CalendarIcon, Spinner } from "@/components/svgs";
-import { profileSchema } from "@/lib/schemas";
 import { MAX_BIRTHDATE, MIN_BIRTHDATE } from "@/lib/constants";
+import { profileSchema } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
-import { useAppContext } from "../../../_context/app-context";
+
 import { updateProfile } from "../../_actions";
+import { useAppContext } from "../../../_context/app-context";
 import FieldGroup from "./field-group";
 
 export default function ProfileForm() {
@@ -73,7 +74,7 @@ export default function ProfileForm() {
             <form
                 noValidate
                 autoComplete="off"
-                className="flex flex-col gap-y-12 lg:max-w-xl md:max-w-lg"
+                className="flex flex-col gap-y-12 md:max-w-lg lg:max-w-xl"
                 onSubmit={form.handleSubmit(onSubmit)}
             >
                 <FieldGroup title="Personal Information">
@@ -157,7 +158,7 @@ export default function ProfileForm() {
                                             toYear={new Date().getUTCFullYear()}
                                             selected={field.value}
                                             onSelect={field.onChange}
-                                            disabled={(date) =>
+                                            disabled={date =>
                                                 date > MAX_BIRTHDATE || date < MIN_BIRTHDATE
                                             }
                                         />
@@ -180,7 +181,7 @@ export default function ProfileForm() {
                                         placeholder="Weight"
                                         type="number"
                                         value={value ?? ""}
-                                        onChange={(e) => onChange(Number(e.target.value))}
+                                        onChange={e => onChange(Number(e.target.value))}
                                         {...field}
                                     />
                                 </FormControl>
@@ -206,7 +207,7 @@ export default function ProfileForm() {
                                         placeholder="Height"
                                         type="number"
                                         value={value ?? ""}
-                                        onChange={(e) => onChange(Number(e.target.value))}
+                                        onChange={e => onChange(Number(e.target.value))}
                                         {...field}
                                     />
                                 </FormControl>

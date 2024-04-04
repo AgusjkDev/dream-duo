@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type { User } from "@prisma/client";
 
-import { verify, sign, EXPIRATION } from "@/lib/jwt";
+import { EXPIRATION, sign, verify } from "@/lib/jwt";
 
 const PROTECTED_ROUTES: string[] = ["/app"];
 const AUTH_ROUTES: string[] = ["/signup", "/login"];
@@ -9,7 +9,7 @@ const AUTH_ROUTES: string[] = ["/signup", "/login"];
 export default async function middleware(req: NextRequest) {
     const { origin, pathname } = req.nextUrl;
     const token = req.cookies.get("token")?.value;
-    const isProtectedRoute = PROTECTED_ROUTES.some((route) => pathname.startsWith(route));
+    const isProtectedRoute = PROTECTED_ROUTES.some(route => pathname.startsWith(route));
 
     if (!token) {
         return isProtectedRoute
@@ -36,7 +36,7 @@ export default async function middleware(req: NextRequest) {
         return NextResponse.next();
     }
 
-    const res = AUTH_ROUTES.some((route) => pathname.startsWith(route))
+    const res = AUTH_ROUTES.some(route => pathname.startsWith(route))
         ? NextResponse.redirect(origin, { status: 307 })
         : NextResponse.next();
 

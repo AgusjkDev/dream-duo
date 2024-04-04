@@ -1,13 +1,14 @@
-import { HeroBackground, DownArrow } from "@/components/svgs";
+import { DownArrow, HeroBackground } from "@/components/svgs";
+
 import CallToAction from "./call-to-action";
 
 export default function Hero() {
     return (
         <main className="relative grid h-dvh w-full place-items-center py-6 lg:snap-center">
-            <HeroBackground className="-z-[1] -translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 h-dvh w-[92.5%] max-w-screen-sm animate-pulse fill-none stroke-[4px] stroke-primary drop-shadow-primary-lg 2xl:max-w-screen-lg" />
+            <HeroBackground className="fixed left-1/2 top-1/2 -z-[1] h-dvh w-[92.5%] max-w-screen-sm -translate-x-1/2 -translate-y-1/2 animate-pulse fill-none stroke-primary stroke-[4px] drop-shadow-primary-lg 2xl:max-w-screen-lg" />
 
             <div className="row-span-2 flex flex-col items-center gap-y-3">
-                <h1 className="text-center text-primary text-title drop-shadow-primary-lg selection:text-primary">
+                <h1 className="text-center text-title text-primary drop-shadow-primary-lg selection:text-primary">
                     Dream Duo
                 </h1>
 
@@ -20,7 +21,7 @@ export default function Hero() {
                 className="absolute bottom-4 rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
                 <DownArrow
-                    className="aspect-square w-8 animate-bounce stroke-2 stroke-primary md:w-10"
+                    className="aspect-square w-8 animate-bounce stroke-primary stroke-2 md:w-10"
                     strokeLinecap="round"
                 />
             </a>

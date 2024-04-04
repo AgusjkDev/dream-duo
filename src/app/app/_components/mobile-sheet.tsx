@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 
-import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "@/components/svgs";
+
 import Navbar from "./navbar";
 
 export default function MobileSheet() {

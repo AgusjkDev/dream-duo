@@ -1,10 +1,10 @@
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import type { Metadata } from "next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 
 import Providers from "@/components/providers";
+import { NEXT_PUBLIC_BASE_URL, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { SITE_CONFIG, NEXT_PUBLIC_BASE_URL } from "@/lib/constants";
 
 import "@/styles/globals.css";
 

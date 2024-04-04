@@ -1,7 +1,8 @@
-import TitleAnchor from "@/components/title-anchor";
 import ThemeSwitch from "@/components/theme-switch";
-import db from "@/lib/db";
+import TitleAnchor from "@/components/title-anchor";
 import { getSession } from "@/lib/auth";
+import db from "@/lib/db";
+
 import MobileSheet from "./_components/mobile-sheet";
 import Navbar from "./_components/navbar";
 import AppContextProvider from "./_context/app-context";
@@ -17,7 +18,7 @@ export default async function AppLayout({ children }: Readonly<{ children: React
     return (
         <AppContextProvider data={{ profile }}>
             <div className="flex">
-                <aside className="fixed bottom-0 w-full border-t bg-background py-2.5 md:static md:bottom-auto md:max-w-64 md:border-t-0 md:border-r md:py-0">
+                <aside className="fixed bottom-0 w-full border-t bg-background py-2.5 md:static md:bottom-auto md:max-w-64 md:border-r md:border-t-0 md:py-0">
                     <div className="flex items-center justify-evenly md:hidden">
                         <MobileSheet />
 

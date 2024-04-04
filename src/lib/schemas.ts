@@ -1,7 +1,7 @@
 import { z } from "zod";
 
+import { MAX_BIRTHDATE, MAX_HEIGHT, MAX_WEIGHT, MIN_BIRTHDATE } from "./constants";
 import regex from "./regex";
-import { MIN_BIRTHDATE, MAX_BIRTHDATE, MAX_WEIGHT, MAX_HEIGHT } from "./constants";
 
 const email = z.string().email({ message: "Invalid email address format." });
 const password = z

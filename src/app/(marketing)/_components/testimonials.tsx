@@ -2,6 +2,7 @@
 
 import Autoplay from "embla-carousel-autoplay";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
     Carousel,
     CarouselContent,
@@ -9,8 +10,8 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { QuoteRight } from "@/components/svgs";
+
 import SectionLayout from "./section-layout";
 
 const TESTIMONIALS: { key: string; title: string; description: string | string[] }[] = [
@@ -84,7 +85,7 @@ export default function Testimonials() {
 
                 <CarouselContent className="-ml-8 lg:-ml-16">
                     {TESTIMONIALS.map(({ key, title, description }) => (
-                        <CarouselItem key={key} className="pl-8 lg:basis-1/2 xl:basis-1/3 lg:pl-16">
+                        <CarouselItem key={key} className="pl-8 lg:basis-1/2 lg:pl-16 xl:basis-1/3">
                             <Card className="aspect-square h-full w-full">
                                 <CardHeader className="relative">
                                     <CardTitle className="flex items-center justify-between">
@@ -100,7 +101,7 @@ export default function Testimonials() {
                                             <p
                                                 // biome-ignore lint/suspicious/noArrayIndexKey: Using the testimonial key and the paragraph index is enough.
                                                 key={`${key}-${index}`}
-                                                className="text-balance text-muted-foreground text-sm leading-5"
+                                                className="text-balance text-sm leading-5 text-muted-foreground"
                                             >
                                                 {paragraph}
                                             </p>

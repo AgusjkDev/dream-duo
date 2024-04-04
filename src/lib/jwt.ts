@@ -1,4 +1,4 @@
-import { SignJWT, jwtVerify, type JWTPayload } from "jose";
+import { jwtVerify, SignJWT, type JWTPayload } from "jose";
 
 const SECRET_KEY = new TextEncoder().encode(process.env.JWT_SECRET);
 export const EXPIRATION = Number(process.env.JWT_EXPIRATION) || 24 * 60 * 60 * 1000; // Default value: 1 day

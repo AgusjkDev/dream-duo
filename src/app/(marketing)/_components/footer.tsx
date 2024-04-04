@@ -86,14 +86,14 @@ export default function Footer() {
                 {PARAGRAPHS.map(({ key, content }) => (
                     <p
                         key={key}
-                        className="max-w-prose text-pretty text-muted-foreground text-sm leading-5 md:max-w-prose-lg"
+                        className="max-w-prose text-pretty text-sm leading-5 text-muted-foreground md:max-w-prose-lg"
                     >
                         {content}
                     </p>
                 ))}
             </section>
 
-            <span className="w-full text-center text-muted-foreground text-xs md:text-right">
+            <span className="w-full text-center text-xs text-muted-foreground md:text-right">
                 Brought to you by the Dream Duo team&#46;
             </span>
         </footer>

@@ -1,29 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
+import { useForm } from "react-hook-form";
 import type z from "zod";
 
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
     Form,
+    FormControl,
     FormField,
     FormItem,
     FormLabel,
-    FormControl,
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import { toast } from "@/components/ui/use-toast";
 import { Calendar as CalendarIcon, Spinner } from "@/components/svgs";
-import { signup, login } from "@/lib/auth";
-import { signupSchema, loginSchema } from "@/lib/schemas";
-import { MIN_BIRTHDATE, MAX_BIRTHDATE } from "@/lib/constants";
+import { login, signup } from "@/lib/auth";
+import { MAX_BIRTHDATE, MIN_BIRTHDATE } from "@/lib/constants";
+import { loginSchema, signupSchema } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
 
 interface AuthFormProps {
@@ -149,7 +149,7 @@ export default function AuthForm({ variant }: Readonly<AuthFormProps>) {
                                                 toYear={new Date().getUTCFullYear()}
                                                 selected={field.value}
                                                 onSelect={field.onChange}
-                                                disabled={(date) =>
+                                                disabled={date =>
                                                     date > MAX_BIRTHDATE || date < MIN_BIRTHDATE
                                                 }
                                             />

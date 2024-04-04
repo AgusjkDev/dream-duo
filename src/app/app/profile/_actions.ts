@@ -1,11 +1,11 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import type z from "zod";
 import type { User } from "@prisma/client";
+import type z from "zod";
 
-import db from "@/lib/db";
 import { getSession } from "@/lib/auth";
+import db from "@/lib/db";
 import { profileSchema } from "@/lib/schemas";
 
 export async function updateProfile(

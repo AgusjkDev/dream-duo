@@ -1,10 +1,11 @@
+import AnimatedGradientBorderCard from "@/components/animated-gradient-border-card";
 import {
     PerfectMatch,
     RealtimeConnections,
     SecureEnvironment,
     type SvgType,
 } from "@/components/svgs";
-import AnimatedGradientBorderCard from "@/components/animated-gradient-border-card";
+
 import SectionLayout from "./section-layout";
 
 const FEATURES: { key: string; svg: SvgType; title: string; description: string }[] = [
@@ -47,7 +48,7 @@ export default function Features() {
 
                             <h3 className="font-bold capitalize">{title}</h3>
 
-                            <p className="h-full place-self-start font-light text-muted-foreground text-xs leading-5">
+                            <p className="h-full place-self-start text-xs font-light leading-5 text-muted-foreground">
                                 {description}
                             </p>
                         </div>

@@ -8,5 +8,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function capitalizeName(name: string) {
-    return name.toLowerCase().replace(regex.capitalizeName, (match) => match.toUpperCase());
+    return name.toLowerCase().replace(regex.capitalizeName, match => match.toUpperCase());
 }
