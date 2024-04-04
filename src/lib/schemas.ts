@@ -23,7 +23,7 @@ const lastname = z
     .max(35, { message: "Last name is too long!" })
     .regex(regex.name, { message: "Invalid last name format." });
 const birthdate = z
-    .date()
+    .date({ required_error: "This field is required." })
     .min(MIN_BIRTHDATE, { message: "Invalid birth date." })
     .max(MAX_BIRTHDATE, { message: "Invalid birth date." });
 
