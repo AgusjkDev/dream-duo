@@ -6,9 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "biome:format": "biome format --write .",
-        "biome:lint": "biome lint --apply-unsafe .",
-        "biome:check": "biome check --apply-unsafe ."
+        "format": "prettier --write ."
     },
     "dependencies": {
         "@hookform/resolvers": "3.3.4",
@@ -41,13 +39,15 @@
         "zod": "3.22.4"
     },
     "devDependencies": {
-        "@biomejs/biome": "1.6.2",
+        "@ianvs/prettier-plugin-sort-imports": "4.2.1",
         "@types/bcrypt": "5.0.2",
         "@types/node": "20.11.30",
         "@types/react": "18.2.67",
         "@types/react-dom": "18.2.22",
         "autoprefixer": "10.4.19",
         "postcss": "8.4.38",
+        "prettier": "3.2.5",
+        "prettier-plugin-tailwindcss": "0.5.13",
         "prisma": "5.11.0",
         "tailwindcss": "3.4.1",
         "typescript": "5.4.3"
