@@ -1,8 +1,15 @@
 import Link, { type LinkProps } from "next/link";
 
+import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 
-const NAVIGATION = [
+const NAVIGATION: {
+    key: string;
+    title: string;
+    anchors: ({ key: string; children: React.ReactNode } & React.ComponentPropsWithoutRef<"a"> &
+        LinkProps)[];
+}[] = [
     {
         key: "legal",
         title: "Legal",
@@ -33,13 +40,9 @@ const NAVIGATION = [
             { key: "x", href: "#", children: "X (Formerly Twitter)" },
         ],
     },
-] satisfies {
-    key: string;
-    title: string;
-    anchors: ({ key: string; children: React.ReactNode } & LinkProps)[];
-}[];
+];
 
-const PARAGRAPHS = [
+const PARAGRAPHS: { key: string; content: string }[] = [
     {
         key: "privacy-and-security",
         content:
@@ -50,7 +53,7 @@ const PARAGRAPHS = [
         content:
             "Your trust means everything to us. We're dedicated to upholding integrity and professionalism. If you have any concerns, please reach out. We're here to support you every step of the way, ensuring your experience with Dream Duo is exceptional. Thank you for choosing us as your preferred dating app.",
     },
-] satisfies { key: string; content: string }[];
+];
 
 export default function Footer() {
     return (
@@ -61,11 +64,15 @@ export default function Footer() {
                         <h4 className="font-medium">{title}</h4>
 
                         <nav className="flex flex-col items-start gap-y-1 lg:gap-y-0.5">
-                            {anchors.map(({ key, ...props }) => (
+                            {anchors.map(({ key, className, ...props }) => (
                                 <Link
                                     key={key}
-                                    className="text-muted-foreground text-sm underline-offset-4 transition-colors hover:text-foreground hover:underline"
                                     {...props}
+                                    className={cn(
+                                        buttonVariants({ variant: "link", size: "inherit" }),
+                                        "text-sm",
+                                        className,
+                                    )}
                                 />
                             ))}
                         </nav>
@@ -79,14 +86,14 @@ export default function Footer() {
                 {PARAGRAPHS.map(({ key, content }) => (
                     <p
                         key={key}
-                        className="max-w-prose text-pretty text-muted-foreground text-sm leading-5 md:max-w-prose-lg"
+                        className="max-w-prose text-pretty text-sm leading-5 text-muted-foreground md:max-w-prose-lg"
                     >
                         {content}
                     </p>
                 ))}
             </section>
 
-            <span className="w-full text-center text-muted-foreground text-xs md:text-right">
+            <span className="w-full text-center text-xs text-muted-foreground md:text-right">
                 Brought to you by the Dream Duo team&#46;
             </span>
         </footer>

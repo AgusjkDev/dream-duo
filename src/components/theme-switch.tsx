@@ -2,8 +2,8 @@
 
 import { useTheme } from "next-themes";
 
-import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Moon, Sun } from "@/components/svgs";
 import { useMounted } from "@/hooks/use-mounted";
 

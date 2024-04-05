@@ -1,10 +1,10 @@
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import type { Metadata } from "next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 
-import ThemeProvider from "@/components/theme-provider";
+import Providers from "@/components/providers";
+import { NEXT_PUBLIC_BASE_URL, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { SITE_CONFIG, NEXT_PUBLIC_BASE_URL } from "@/lib/constants";
 
 import "@/styles/globals.css";
 
@@ -87,6 +87,7 @@ export function generateMetadata(): Metadata {
                 url: "/imgs/favicons/favicon.ico",
             },
         ],
+        metadataBase: NEXT_PUBLIC_BASE_URL ? new URL(NEXT_PUBLIC_BASE_URL) : null,
         openGraph: {
             title: SITE_CONFIG.name,
             description: SITE_CONFIG.description,
@@ -121,7 +122,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={cn(GeistSans.variable, GeistMono.variable)}>
-                <ThemeProvider>{children}</ThemeProvider>
+                <Providers>{children}</Providers>
             </body>
         </html>
     );

@@ -19,7 +19,7 @@ export default function SectionLayout({
             )}
             {...props}
         >
-            <h2 className="text-center text-primary text-subtitle drop-shadow-primary-md">
+            <h2 className="text-center text-subtitle text-primary drop-shadow-primary-md selection:text-primary">
                 {title}
             </h2>
 
