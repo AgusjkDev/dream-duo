@@ -3,7 +3,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
     darkMode: "class",
-    content: ["./src/**/*.{ts,tsx}"],
+    content: ["./src/app/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
     theme: {
         container: {
             center: true,
@@ -15,7 +15,6 @@ const config: Config = {
         extend: {
             fontFamily: {
                 sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-                mono: ["var(--font-geist-mono)", ...fontFamily.mono],
             },
             fontSize: {
                 title: [

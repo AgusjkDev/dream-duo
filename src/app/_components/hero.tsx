@@ -1,6 +1,7 @@
-import { DownArrow, HeroBackground } from "@/components/svgs";
+import Link from "next/link";
 
-import CallToAction from "./call-to-action";
+import { buttonVariants } from "@/components/ui/button";
+import { DownArrow, HeroBackground } from "@/components/svgs";
 
 export default function Hero() {
     return (
@@ -12,7 +13,9 @@ export default function Hero() {
                     Dream Duo
                 </h1>
 
-                <CallToAction />
+                <Link href="#" className={buttonVariants({ variant: "shine", size: "lg" })}>
+                    Join now
+                </Link>
             </div>
 
             <a

@@ -2,8 +2,6 @@
 
 import { ThemeProvider } from "next-themes";
 
-import { Toaster } from "@/components/ui/toaster";
-
 interface ProvidersProps {
     children: React.ReactNode;
 }
@@ -17,8 +15,6 @@ export default function Providers({ children }: Readonly<ProvidersProps>) {
             defaultTheme="system"
         >
             {children}
-
-            <Toaster />
         </ThemeProvider>
     );
 }

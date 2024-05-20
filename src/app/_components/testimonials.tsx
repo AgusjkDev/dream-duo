@@ -99,7 +99,6 @@ export default function Testimonials() {
                                     {(Array.isArray(description) ? description : [description]).map(
                                         (paragraph, index) => (
                                             <p
-                                                // biome-ignore lint/suspicious/noArrayIndexKey: Using the testimonial key and the paragraph index is enough.
                                                 key={`${key}-${index}`}
                                                 className="text-balance text-sm leading-5 text-muted-foreground"
                                             >

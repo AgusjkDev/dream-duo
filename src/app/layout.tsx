@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
-import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
 import Providers from "@/components/providers";
-import { NEXT_PUBLIC_BASE_URL, SITE_CONFIG } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config";
 
 import "@/styles/globals.css";
 
 export function generateMetadata(): Metadata {
     return {
-        title: SITE_CONFIG.name,
-        description: SITE_CONFIG.description,
-        keywords: SITE_CONFIG.keywords,
-        applicationName: SITE_CONFIG.name,
-        publisher: SITE_CONFIG.name,
-        creator: SITE_CONFIG.author,
-        authors: { name: SITE_CONFIG.author },
+        title: siteConfig.name,
+        description: siteConfig.description,
+        keywords: siteConfig.keywords,
+        applicationName: siteConfig.name,
+        publisher: siteConfig.name,
+        creator: siteConfig.author,
+        authors: { name: siteConfig.author },
         generator: "Next.js",
         referrer: "origin",
         manifest: "/manifest.webmanifest",
@@ -87,16 +85,16 @@ export function generateMetadata(): Metadata {
                 url: "/imgs/favicons/favicon.ico",
             },
         ],
-        metadataBase: NEXT_PUBLIC_BASE_URL ? new URL(NEXT_PUBLIC_BASE_URL) : null,
+        metadataBase: new URL(siteConfig.baseUrl!),
         openGraph: {
-            title: SITE_CONFIG.name,
-            description: SITE_CONFIG.description,
-            url: NEXT_PUBLIC_BASE_URL,
-            siteName: SITE_CONFIG.name,
+            title: siteConfig.name,
+            description: siteConfig.description,
+            url: siteConfig.baseUrl,
+            siteName: siteConfig.name,
             locale: "en_US",
             type: "website",
             images: {
-                url: `${NEXT_PUBLIC_BASE_URL}/imgs/og.png`,
+                url: `${siteConfig.baseUrl}/imgs/og.png`,
                 width: 3840,
                 height: 2010,
             },
@@ -121,7 +119,7 @@ export function generateMetadata(): Metadata {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={cn(GeistSans.variable, GeistMono.variable)}>
+            <body className={GeistSans.variable}>
                 <Providers>{children}</Providers>
             </body>
         </html>

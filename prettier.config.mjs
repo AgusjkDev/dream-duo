@@ -1,7 +1,7 @@
 /** @type {import("prettier").Config & import("@ianvs/prettier-plugin-sort-imports").PluginConfig} */
 const config = {
     arrowParens: "avoid",
-    endOfLine: "crlf",
+    endOfLine: "lf",
     printWidth: 100,
     tabWidth: 4,
     importOrder: [

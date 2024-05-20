@@ -1,56 +1,55 @@
 {
     "name": "dream-duo",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "private": true,
+    "description": "Online dating app landing page.",
+    "keywords": [
+        "online",
+        "dating",
+        "app",
+        "landing",
+        "landing page"
+    ],
+    "author": {
+        "name": "Agustín Arnoldi",
+        "email": "agusjkdev7@gmail.com",
+        "url": "https://github.com/agusjkdev"
+    },
+    "repository": {
+        "url": "git+https://github.com/agusjkdev/dream-duo.git"
+    },
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "format": "prettier --write .",
-        "postinstall": "prisma generate"
+        "format": "prettier --write ."
     },
     "dependencies": {
-        "@hookform/resolvers": "3.3.4",
-        "@prisma/client": "5.11.0",
-        "@radix-ui/react-dialog": "1.0.5",
         "@radix-ui/react-icons": "1.3.0",
-        "@radix-ui/react-label": "2.0.2",
-        "@radix-ui/react-popover": "1.0.7",
-        "@radix-ui/react-scroll-area": "1.0.5",
-        "@radix-ui/react-select": "2.0.0",
         "@radix-ui/react-separator": "1.0.3",
         "@radix-ui/react-slot": "1.0.2",
-        "@radix-ui/react-toast": "1.1.5",
-        "bcrypt": "5.1.1",
         "class-variance-authority": "0.7.0",
-        "clsx": "2.1.0",
-        "date-fns": "3.6.0",
-        "embla-carousel-autoplay": "8.0.0",
-        "embla-carousel-react": "8.0.0",
-        "geist": "1.2.2",
-        "jose": "5.2.3",
-        "next": "14.1.4",
+        "clsx": "2.1.1",
+        "embla-carousel-autoplay": "8.1.3",
+        "embla-carousel-react": "8.1.3",
+        "geist": "1.3.0",
+        "next": "14.2.3",
         "next-themes": "0.3.0",
-        "react": "18.2.0",
-        "react-day-picker": "8.10.0",
-        "react-dom": "18.2.0",
-        "react-hook-form": "7.51.1",
-        "tailwind-merge": "2.2.2",
-        "tailwindcss-animate": "1.0.7",
-        "zod": "3.22.4"
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "tailwind-merge": "2.3.0",
+        "tailwindcss-animate": "1.0.7"
     },
     "devDependencies": {
         "@ianvs/prettier-plugin-sort-imports": "4.2.1",
-        "@types/bcrypt": "5.0.2",
-        "@types/node": "20.11.30",
-        "@types/react": "18.2.67",
-        "@types/react-dom": "18.2.22",
+        "@types/node": "20.12.12",
+        "@types/react": "18.3.2",
+        "@types/react-dom": "18.3.0",
         "autoprefixer": "10.4.19",
         "postcss": "8.4.38",
         "prettier": "3.2.5",
-        "prettier-plugin-tailwindcss": "0.5.13",
-        "prisma": "5.11.0",
-        "tailwindcss": "3.4.1",
-        "typescript": "5.4.3"
+        "prettier-plugin-tailwindcss": "0.5.14",
+        "tailwindcss": "3.4.3",
+        "typescript": "5.4.5"
     }
 }

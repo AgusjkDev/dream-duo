@@ -1,4 +1,3 @@
-import AnimatedGradientBorderCard from "@/components/animated-gradient-border-card";
 import {
     PerfectMatch,
     RealtimeConnections,
@@ -37,11 +36,9 @@ export default function Features() {
         <SectionLayout id="features" title="Embrace your love journey">
             <div className="flex flex-wrap items-center justify-center gap-8 xl:gap-16">
                 {FEATURES.map(({ key, svg: Svg, title, description }) => (
-                    <AnimatedGradientBorderCard
+                    <article
                         key={key}
-                        as="article"
-                        variant="primary"
-                        className="max-w-xs"
+                        className="max-w-xs rounded-xl border shadow-[inset_0_1px_1px_0] shadow-primary/[0.33]"
                     >
                         <div className="grid h-full w-full grid-rows-[2fr,1fr,2fr] place-items-center p-6">
                             <Svg className="max-h-[107px]" />
@@ -52,7 +49,7 @@ export default function Features() {
                                 {description}
                             </p>
                         </div>
-                    </AnimatedGradientBorderCard>
+                    </article>
                 ))}
             </div>
         </SectionLayout>

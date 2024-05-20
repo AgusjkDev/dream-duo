@@ -1,6 +1,4 @@
 .env
 .next
-migration_lock.toml
 node_modules
-package-lock.json
 pnpm-lock.yaml

@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { buttonVariants } from "@/components/ui/button";
 import { PageNotFound } from "@/components/svgs";
-import { cn } from "@/lib/utils";
 
 export default function NotFound() {
     return (
@@ -11,7 +10,7 @@ export default function NotFound() {
 
             <h1 className="text-2xl font-black md:text-3xl">Page Not Found</h1>
 
-            <Link href="/" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "")}>
+            <Link href="/" className={buttonVariants({ variant: "outline", size: "lg" })}>
                 Home
             </Link>
         </main>
